@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatos Urbanos - Vish</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="logo">
+    <img src="img/icones/cardapio.png" alt="" srcset="">
+    <img src="img/logo.png" id="logo" alt="" srcset="">
+  </div>
+
+  <h1>RELATOS URBANOS</h1>
+
+  <form id="relatoForm" enctype="multipart/form-data">
+    <label class="upload-area">
+      Tire uma foto do seu relato e envie por aqui.
+      <span class="upload-icon">📷</span>
+      <input type="file" name="imagem" accept="image/*" capture="environment" required>
+    </label>
+
+    <textarea name="descricao" placeholder="Diga qual é o problema que você encontrou. (Opcional)"></textarea>
+
+    <button type="button" class="location-btn" onclick="obterLocalizacao()">📍 Localização</button>
+    <input type="hidden" name="localizacao" id="localizacao">
+
+    <button type="submit" class="submit-btn">Enviar Relato ✈️</button>
+  </form>
+
+  <script>
+    const webhookURL = "https://seu-webhook-url.com"; // Altere aqui para seu webhook
+
+    document.getElementById('relatoForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const imagemInput = document.querySelector('input[name="imagem"]');
+      const localizacaoInput = document.getElementById('localizacao');
+
+      // Validação da foto
+      if (!imagemInput.files[0]) {
+        alert("Você precisa tirar uma foto para enviar o relato.");
+        return;
+      }
+
+      // Validação da localização
+      if (!localizacaoInput.value) {
+        alert("Você precisa capturar sua localização antes de enviar.");
+        return;
+      }
+
+      const formData = new FormData(this);
+
+      try {
+        const response = await fetch(webhookURL, {
+          method: 'POST',
+          body: formData
+        });
+
+        if (response.ok) {
+          alert('Relato enviado com sucesso!');
+          this.reset();
+          document.getElementById('localizacao').value = "";
+        } else {
+          alert('Erro ao enviar o relato.');
+        }
+      } catch (error) {
+        alert('Erro de rede: ' + error.message);
+      }
+    });
+
+    function obterLocalizacao() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            const coords = `${position.coords.latitude},${position.coords.longitude}`;
+            document.getElementById('localizacao').value = coords;
+            alert("Localização capturada: " + coords);
+          },
+          function () {
+            alert("Erro ao obter localização. Tente novamente.");
+          }
+        );
+      } else {
+        alert("Seu navegador não suporta geolocalização.");
+      }
+    }
+  </script>
+
+</body>
+</html>
