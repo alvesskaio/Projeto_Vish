@@ -31,9 +31,19 @@
   </form>
 
   <script>
-    const webhookURL = "https://seu-webhook-url.com"; // Substitua aqui
+    const webhookURL = "https://seu-webhook-url.com";
 
-    document.getElementById('relatoForm').addEventListener('submit', async function (e) {
+    // Função para bloquear a utilização de Desktop
+    // function isMobile() {
+    //   return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+    // }
+
+    // if (!isMobile()) {
+    //   document.body.innerHTML = "<div style='padding:40px; text-align:center; font-size:18px;'>Este site está disponível apenas para dispositivos móveis 📱</div>";
+    //   document.body.style.backgroundColor = "#fff";
+    // }
+
+    document.getElementById('relatoForm')?.addEventListener('submit', async function (e) {
       e.preventDefault();
 
       const imagemInput = document.querySelector('input[name="imagem"]');

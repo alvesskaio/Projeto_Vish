@@ -15,7 +15,6 @@ body {
   max-width: 100%;
 }
 
-
 img {
   max-width: 100%;
   height: auto;
@@ -33,7 +32,6 @@ img {
   width: auto;
   max-width: 100%;
 }
-
 
 #logo {
   max-width: 33%;
@@ -55,6 +53,7 @@ h1 {
   margin: 20px 0;
   font-size: 1.8em;
 }
+
 form {
   width: 100%;
   max-width: 600px;
@@ -91,7 +90,7 @@ form {
 }
 
 .upload-icon {
-  font-size: 2em;
+  font-size: 2.5em;
   color: #F24C27;
   margin-top: 10px;
 }
@@ -99,10 +98,11 @@ form {
 textarea {
   border: 1px solid #ccc;
   border-radius: 10px;
-  padding: 10px;
+  padding: 16px;
   resize: none;
-  height: 80px;
+  height: 100px;
   margin-bottom: 10px;
+  font-size: 1rem;
   transition: all 0.3s ease;
 }
 
@@ -116,14 +116,15 @@ textarea:focus {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 10px 20px;
+  padding: 16px 24px;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   background-color: #fff;
   border: 1px solid #ccc;
   cursor: pointer;
   align-self: center;
   margin-bottom: 10px;
+  font-size: 1rem;
   transition: all 0.3s ease;
 }
 
@@ -136,11 +137,11 @@ textarea:focus {
 .submit-btn {
   background-color: #F27D52;
   color: white;
-  padding: 15px;
+  padding: 16px;
   border: none;
-  border-radius: 10px;
+  border-radius: 12px;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1rem;
   cursor: pointer;
   margin-top: 10px;
   transition: background-color 0.3s ease, transform 0.2s ease;
@@ -152,18 +153,6 @@ textarea:focus {
 }
 
 @media screen and (min-width: 768px) {
-  body {
-    padding: 40px;
-  }
-
-  .logo img {
-    max-width: 60px;
-  }
-
-  #logo {
-    max-width: 100px;
-  }
-
   h1 {
     font-size: 2em;
   }
