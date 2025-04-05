@@ -17,6 +17,22 @@ img {
   height: auto;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  max-width: 10%;
+  height: auto;
+}
+
+#logo {
+  max-width: 33%;
+  height: auto;
+}
+
 .menu-icon {
   transition: transform 0.2s ease, filter 0.2s ease;
   cursor: pointer;
@@ -25,23 +41,6 @@ img {
 .menu-icon:hover {
   transform: scale(1.1);
   filter: brightness(1.2);
-}
-
-
-.logo {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo img {
-  max-width: 50px;
-  height: auto;
-}
-
-#logo {
-  max-width: 150px;
-  height: auto;
 }
 
 h1 {
@@ -65,6 +64,12 @@ form {
   cursor: pointer;
   position: relative;
   margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+  border-color: #F27D52;
+  box-shadow: 0 0 8px rgba(242, 125, 82, 0.3);
 }
 
 .upload-area input {
@@ -90,6 +95,13 @@ textarea {
   resize: none;
   height: 80px;
   margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+textarea:focus {
+  border-color: #F27D52;
+  box-shadow: 0 0 8px rgba(242, 125, 82, 0.3);
+  outline: none;
 }
 
 .location-btn {
@@ -104,6 +116,13 @@ textarea {
   cursor: pointer;
   align-self: center;
   margin-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.location-btn:hover {
+  background-color: #f2f2f2;
+  border-color: #F27D52;
+  color: #F27D52;
 }
 
 .submit-btn {
@@ -116,9 +135,14 @@ textarea {
   font-size: 1em;
   cursor: pointer;
   margin-top: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Responsividade para telas maiores */
+.submit-btn:hover {
+  background-color: #e56635;
+  transform: scale(1.02);
+}
+
 @media screen and (min-width: 768px) {
   body {
     padding: 40px;

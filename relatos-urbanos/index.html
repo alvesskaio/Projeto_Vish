@@ -10,7 +10,7 @@
 
   <div class="logo">
     <img src="img/icones/cardapio.png" alt="Menu" class="menu-icon">
-    <img src="img/logo.png" id="logo" alt="" srcset="">
+    <img src="img/logo.png" id="logo" alt="Logo Vish">
   </div>
 
   <h1>RELATOS URBANOS</h1>
@@ -31,7 +31,7 @@
   </form>
 
   <script>
-    const webhookURL = "https://seu-webhook-url.com"; // Altere aqui para seu webhook
+    const webhookURL = "https://seu-webhook-url.com"; // Substitua aqui
 
     document.getElementById('relatoForm').addEventListener('submit', async function (e) {
       e.preventDefault();
@@ -39,13 +39,11 @@
       const imagemInput = document.querySelector('input[name="imagem"]');
       const localizacaoInput = document.getElementById('localizacao');
 
-      // Validação da foto
       if (!imagemInput.files[0]) {
         alert("Você precisa tirar uma foto para enviar o relato.");
         return;
       }
 
-      // Validação da localização
       if (!localizacaoInput.value) {
         alert("Você precisa capturar sua localização antes de enviar.");
         return;
